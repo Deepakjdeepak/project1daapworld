@@ -2,6 +2,27 @@
 Retrieve the value of secret_flag from the contract
 the code is:
 
+method1;
+const Web3 = require('web3');
+const web3 = new Web3('YOUR_ETHEREUM_NODE_URL'); // Replace with your Ethereum node URL
+
+const contractAddress = 'YOUR_CONTRACT_ADDRESS'; // Replace with the actual contract address
+const contractAbi = [...]; // Replace with the ABI of your contract
+
+const contract = new web3.eth.Contract(contractAbi, contractAddress);
+
+async function getSecretFlag() {
+  try {
+    const secretFlag = await contract.methods.secret_flag().call();
+    console.log(`The secret flag is: ${secretFlag}`);
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}
+
+getSecretFlag();
+
+method 2;
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
